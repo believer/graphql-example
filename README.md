@@ -1,7 +1,12 @@
+## Get started
+
 ```
-npm install
-npm start
+$ npm install
+$ npm start
+$ graphql playground (if installed)
 ```
+
+## Example query
 
 ```
 {
