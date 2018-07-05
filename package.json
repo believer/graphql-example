@@ -1,0 +1,17 @@
+{
+  "name": "playpilot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "believer <rickard.laurin@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "graphql-tag": "^2.9.2",
+    "graphql-yoga": "^1.14.12"
+  }
+}
