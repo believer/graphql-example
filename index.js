@@ -8,7 +8,17 @@ function getRandomInt(min, max) {
 
 const typeDefs = gql`
   type Query {
-    heroes: [Title!]
+    heroes(where: TitleWhereInput): [Title!]
+  }
+
+  input TitleWhereInput {
+    filter: ContentFilterTypes
+    type: ContentType
+  }
+
+  enum ContentFilterTypes {
+    hot
+    popular
   }
 
   """
@@ -101,7 +111,7 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    heroes: _ => {
+    heroes: (_, { where = {} }) => {
       const types = ['movie', 'series']
       const providers = [
         { id: faker.random.uuid, name: 'Netflix' },
@@ -112,7 +122,7 @@ const resolvers = {
         id: faker.random.uuid,
         contentProviders: [providers[getRandomInt(0, 1)]],
         title: faker.lorem.words(getRandomInt(1, 4)),
-        type: types[getRandomInt(0, 1)]
+        type: where.type ? where.type : types[getRandomInt(0, 1)]
       }))
     }
   },

@@ -10,13 +10,13 @@ $ graphql playground (if installed)
 
 ```
 {
-  heroes {
+  heroes(where: { type: series }) {
     ...MixedTitle
   }
-  hot: heroes {
+  hot: heroes(where: { filter: hot }) {
     ...MixedTitle
   }
-  popular: heroes {
+  popularMovies: heroes(where: { type: movie }) {
     ...MixedTitle
   }
 }
